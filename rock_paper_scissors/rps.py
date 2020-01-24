@@ -3,7 +3,16 @@
 import sys
 
 def rock_paper_scissors(n):
-  pass 
+    options = ['rock', 'paper', 'scissors']
+    permutations = []
+    def inner_rps(rounds_left, result=[]):
+      if (rounds_left == 0):
+        permutations.append(result)
+        return
+      for i in options:
+        inner_rps(rounds_left-1, result + [i])
+    inner_rps(n, result=[])
+    return permutations
 
 
 if __name__ == "__main__":
